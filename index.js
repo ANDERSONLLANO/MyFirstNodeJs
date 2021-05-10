@@ -10,6 +10,7 @@ http.createServer((req,res) => {
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const mongoose = require('mongoose');
 
 //settings
 app.listen(5050, () => {
