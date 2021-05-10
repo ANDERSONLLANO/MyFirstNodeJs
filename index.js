@@ -49,6 +49,7 @@ app.use(express.json());
 
 app.use("/People", require("./src/Routes/People"));
 app.use("/NoVaccine", require("./src/Routes/NoVaccine"));
+app.use("/Affiliate", require("./src/Affiliates"));
 //app.use("/index.ejs", require("./src/Routes/index.ejs"));
 
 /*app.get('/', (req, res) => {
