@@ -11,10 +11,18 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://AndersonLlano:MongoDB65303@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 
 //settings
 app.listen(5050, () => {
-    console.log("Servidor Inicializado")
+    console.log("Servidor Inicializado");
     console.log('El Nombre de la App:', app.get('appName'));
 });
 app.set('appName', 'Mi First Server');
@@ -47,7 +55,10 @@ app.use("/NoVaccine", require("./src/Routes/NoVaccine"));
     res.end('Hello World!');
 });*/
 
-
+app.get('/', (req, res) => {
+    res.end('Bienvenidos a MuerteMax... Nuestro servicio es ud, por favor ingrese al slash /afiliados');
+    
+});
 
 app.get('/login', (req, res) => {
     res.end('Aquí va el login!');
