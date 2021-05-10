@@ -11,14 +11,11 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://AndersonLlano:MongoDB65303@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+
+mongoose.connect("mongodb+srv://AndersonLlano:MongoDB65303@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+{ useNewUrlParser: true, useUnifiedTopology: true }
+),
+
 
 //settings
 app.listen(5050, () => {
@@ -49,7 +46,7 @@ app.use(express.json());
 
 app.use("/People", require("./src/Routes/People"));
 app.use("/NoVaccine", require("./src/Routes/NoVaccine"));
-app.use("/Affiliate", require("./src/Affiliates"));
+app.use("/Affiliate", require("./src/Affiliates/Affiliate"));
 //app.use("/index.ejs", require("./src/Routes/index.ejs"));
 
 /*app.get('/', (req, res) => {
@@ -57,7 +54,7 @@ app.use("/Affiliate", require("./src/Affiliates"));
 });*/
 
 app.get('/', (req, res) => {
-    res.end('Bienvenidos a MuerteMax... Nuestro servicio es ud, por favor ingrese al slash /afiliados');
+    res.end('Bienvenidos a MuerteMax... Nuestro servicio es ud, por favor ingrese al slash /afiliado');
     
 });
 

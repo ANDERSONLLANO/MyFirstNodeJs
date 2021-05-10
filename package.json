@@ -1,7 +1,7 @@
 {
   "name": "jullanodejs",
   "version": "1.0.0",
-  "description": "Julla Equipos Medicos",
+  "description": "MuerteMax vacunacion",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
