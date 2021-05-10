@@ -2,18 +2,18 @@ const { Router, json } = require("express");
 const router = Router();
 const mongoose = require("mongoose");
 
-const Affiliate = require("../Affiliates/Affiliate");
+const Affiliate = require("../Models/Affiliate");
 
-/*router.get("/", (req, res) => {
+router.get("/", (req, res) => {
     Affiliate.find()
     .exec()
     .then((Affiliate) => res.status(200).json(Affiliate))
     .catch((error) => res.status(500).json({ error}))
-});*/
+});
 
 
 router.post("/", (req, res) => {
-    const Affiliate = new Affiliates({
+    const Affiliates = new Affiliate({
         _Id: new mongoose.Types.ObjectId(),
         FirstName : req.body.FirstName,
         LastName : req.body.LastName,
@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
         SecondDose: req.body.SecondDose,
     });
 
-    Affiliate.save()
+    Affiliates.save()
     .then((result) => console.log("result:", result))
     .catch((error) => console.log("error:", error)),
 
