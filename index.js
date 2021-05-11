@@ -12,9 +12,9 @@ const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
 
-//mongoose.connect("mongodb+srv://AndersonLlano:MongoDB65303@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+
 mongoose.connect(
-    "mongodb+srv://AndersonLlano:MongoDB65303@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongodb+srv://AndersonLlano:1234567890@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
 ),
 
@@ -48,7 +48,7 @@ app.use(express.json());
 
 app.use("/People", require("./src/Routes/People"));
 app.use("/NoVaccine", require("./src/Routes/NoVaccine"));
-app.use("/Affiliate", require("./src/Models/Affiliate"));
+app.use("/Affiliate", require("./src/Routes/Affiliate"));
 //app.use("/index.ejs", require("./src/Routes/index.ejs"));
 
 

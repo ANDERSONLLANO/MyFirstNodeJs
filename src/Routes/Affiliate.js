@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const Affiliate = require("../Models/Affiliate");
 
 router.get("/", (req, res) => {
+    console.log(" esperemos que esto nos corra");
     Affiliate.find()
     .exec()
     .then((Affiliate) => res.status(200).json(Affiliate))
@@ -36,5 +37,7 @@ router.post("/", (req, res) => {
         message: "Affiliate was created",
         createdAffiliate: Affiliate,
     })
+
 });
 
+module.exports = router;
