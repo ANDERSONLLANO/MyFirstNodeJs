@@ -5,6 +5,8 @@ const affiliateSchema = mongoose.Schema({
     FirstName : String,
     LastName : String,
     License: String,
+    Address: String,
+    Phone: Number,
     Email: String,
     Gender: String,
     Age : Number,
