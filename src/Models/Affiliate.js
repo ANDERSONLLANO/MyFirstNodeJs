@@ -8,9 +8,9 @@ const affiliateSchema = mongoose.Schema({
     Email: String,
     Gender: String,
     Age : Number,
-    DateConfirmationFirstVaccine: Date,
+    DateConfirmationFirstVaccine: String,
     FirstDose: String,
-    DateConfirmationSecondVaccine: Date,
+    DateConfirmationSecondVaccine: String,
     SecondDose: String,
 });
 

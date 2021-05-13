@@ -12,6 +12,14 @@ router.get("/", (req, res) => {
     .catch((error) => res.status(500).json({ error}))
 });
 
+router.get("/:License", (req, res) => {
+    const License = req.params.License;
+    Affiliate.find({ License : License})
+    .exec()
+    .then((Affiliate) => res.status(200).json(Affiliate))
+    .catch((error) => res.status(500).json({ error}))
+});
+
 
 router.post("/", (req, res) => {
     const Affiliates = new Affiliate({
