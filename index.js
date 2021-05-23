@@ -13,13 +13,23 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const passport = require('passport');
-const flash = require('flash');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
+// conexion a la base de datos MongoDB
 
-mongoose.connect(
+const {url } = require('./src/config/database');
+
+mongoose.connect(url,
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
+
+/*mongoose.connect(
     "mongodb+srv://AndersonLlano:1234567890@clusterlland.f9gdq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
-),
+),*/
 
 
 //settings
@@ -30,8 +40,8 @@ app.listen(5050, () => {
 app.set('appName', 'Mi First Server');
 app.set('json spaces', 2);
 
-//app.set('views', __dirname + '/views');
-//app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname + '/views'));
+app.set('view engine', 'ejs');
 
 /*app.get('/', (req, res) => {
     res.render('index.ejs');
@@ -45,15 +55,32 @@ app.set('json spaces', 2);
 
 //otras configuraciones de morgan: short, dev, common, tiny, combined...
 app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(express.urlencoded({ extended : false }));
+app.use(bodyParser.urlencoded({ extended : false }));
 app.use(express.json());
+app.use(session({
+    secret: 'MuerteMax',
+    resave: false,
+    saveUninitialized: false,
+}));
+app.use(passport.initialize);
+app.use(passport.session);
+app.use(flash());
+
 //lotes o rutas
+
+//{{{require('./src/Routes')(Routes, passport);
 
 app.use("/People", require("./src/Routes/People"));
 app.use("/NoVaccine", require("./src/Routes/NoVaccine"));
 app.use("/Affiliate", require("./src/Routes/Affiliate"));
-//app.use("/index.ejs", require("./src/Routes/index.ejs"));
+//app.use("/passport", require("./src/config/passport"));
+//app.use("/", require("./src/views/index.ejs"));
 
+// staics files
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.end('Bienvenidos a MuerteMax... Nuestro servicio es usted, por favor ingrese al slash /afiliado');
