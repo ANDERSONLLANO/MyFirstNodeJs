@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ANDERSONLLANO/MyFirstNodeJs.git"
+    "url": "git+https://github.com/ANDERSONLLANO/JullaNodeJs.git"
   },
   "author": "LLAND",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ANDERSONLLANO/MyFirstNodeJs/issues"
+    "url": "https://github.com/ANDERSONLLANO/JullaNodeJs/issues"
   },
-  "homepage": "https://github.com/ANDERSONLLANO/MyFirstNodeJs#readme",
+  "homepage": "https://github.com/ANDERSONLLANO/JullaNodeJs#readme",
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",

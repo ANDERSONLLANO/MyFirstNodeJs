@@ -10,16 +10,16 @@ http.createServer((req,res) => {
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
-//const mongoose = require('mongoose');
-//const path = require('path');
-//const passport = require('passport');
-//const flash = require('flash');
+const mongoose = require('mongoose');
+const path = require('path');
+const passport = require('passport');
+const flash = require('flash');
 
 
-/*mongoose.connect(
+mongoose.connect(
     "mongodb+srv://muertemax:0987654321@muertemax.59lwz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
-),*/
+),
 
 
 //settings
