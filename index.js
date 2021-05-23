@@ -11,9 +11,9 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
-//const path = require('path');
-//const passport = require('passport');
-//const flash = require('flash');
+const path = require('path');
+const passport = require('passport');
+const flash = require('flash');
 
 
 mongoose.connect(
