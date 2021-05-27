@@ -59,14 +59,14 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended : false }));
 app.use(bodyParser.urlencoded({ extended : false }));
 app.use(express.json());
-app.use(session({
+/*app.use(session({
     secret: 'MuerteMax',
     resave: false,
     saveUninitialized: false,
-}));
-app.use(passport.initialize);
-app.use(passport.session);
-app.use(flash());
+}));*/
+//app.use(passport.initialize);
+//app.use(passport.session);
+//app.use(flash());
 
 //lotes o rutas
 
@@ -80,7 +80,7 @@ app.use("/Affiliate", require("./src/Routes/Affiliate"));
 
 // staics files
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.end('Bienvenidos a MuerteMax... Nuestro servicio es usted, por favor ingrese al slash /afiliado');

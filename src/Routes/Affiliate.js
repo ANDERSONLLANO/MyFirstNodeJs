@@ -11,6 +11,13 @@ router.get("/", (req, res) => {
     .catch((error) => res.status(500).json({ error}))
 });
 
+router.get("/NoVaccine", (req, res) => {
+    Affiliate.find({ FirstDose : "N", SecondDose : "N"})
+    .exec()
+    .then((Affiliate) => res.status(200).json(Affiliate))
+    .catch((error) => res.status(500).json({ error }))
+});
+
 router.get("/:License", (req, res) => {
     const License = req.params.License;
     Affiliate.find({ License : License})
@@ -60,15 +67,15 @@ router.patch("/:License", (req, res) => {
                 //FirstName : req.body.FirstName,
                 //LastName : req.body.LastName,
                 //License: req.body.License,
-                //Address: req.body.Address,
-                //Phone: req.body.Phone,
-                //Email: req.body.Email,
+                Address: req.body.Address,
+                Phone: req.body.Phone,
+                Email: req.body.Email,
                 //Gender: req.body.Gender,
                 //Age : req.body.Age,
                 DateConfirmationFirstVaccine: req.body.DateConfirmationFirstVaccine,
                 FirstDose: req.body.FirstDose,
-                //DateConfirmationSecondVaccine: req.body.DateConfirmationSecondVaccine,
-                //SecondDose: req.body.SecondDose, 
+                DateConfirmationSecondVaccine: req.body.DateConfirmationSecondVaccine,
+                SecondDose: req.body.SecondDose, 
             },
         }
     )

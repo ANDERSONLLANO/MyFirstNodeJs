@@ -17,7 +17,8 @@ const People =[
     DateConfirmationFirstVaccine: " 7/05/2021",
     DateConfirmationSecondVaccine: " 30/05/2021",
     FirstDose: "Y",
-    SecondDose: "Y",
+    SecondDose: "N",
+    Status: "Estudio",
  },
  {
     Id: "2",
@@ -31,8 +32,9 @@ const People =[
     Age : "39",
     DateConfirmationFirstVaccine: " 7/05/2021",
     DateConfirmationSecondVaccine: " 30/05/2021",
-    FirstDose: "N",
+    FirstDose: "Y",
     SecondDose: "N",
+    Status: "Aprobado",
 },
 {
     Id: "3",
@@ -48,6 +50,7 @@ const People =[
     DateConfirmationSecondVaccine: " 30/05/2021",
     FirstDose: "Y",
     SecondDose: "N",
+    Status: "Estudio",
 },
 {
     Id: "4",
@@ -62,7 +65,8 @@ const People =[
     DateConfirmationFirstVaccine: " 7/05/2021",
     DateConfirmationSecondVaccine: " 30/05/2021",
     FirstDose: "N",
-    SecondDose: "Y",
+    SecondDose: "N",
+    Status: "Estudio",
 },
 ];
 
@@ -85,8 +89,8 @@ router.get('/female', (req, res) => {
     res.json(NewPeopleFemale);    
 });
 
-router.get('/NoVaccine', (req, res) => {
-    let NewVaccine = People.filter((Person) => Person.FirstDose === "N" || Person.SecondDose === "N");
+router.get('/Vaccine', (req, res) => {
+    let NewVaccine = People.filter((Person) => Person.FirstDose === "Y" || Person.SecondDose === "Y");
     res.json(NewVaccine);    
 });
 
